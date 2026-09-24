@@ -2,15 +2,19 @@ from django.db import models
 
 
 class Produto(models.Model):
-    """Representa um produto da loja.
+    """Produto da loja.
 
-    Começa com os mesmos campos usados nas Aulas 2-13 (Express/FastAPI): nome e preco.
-    Os campos marca, estoque e descricao serão adicionados na Aula 26 (Evolução do Produto),
-    espelhando as Aulas 14-16 do material de Express/FastAPI.
+    Evoluido na Aula 26 com marca, estoque e descricao, espelhando as Aulas 14-16
+    do material de Express/FastAPI. Os campos tem 'default' apenas para permitir
+    a migration sobre dados existentes; a obrigatoriedade real de marca/estoque
+    e' garantida no ProdutoSerializer (validate_*), nao no Model.
     """
 
     nome = models.CharField(max_length=100)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
+    marca = models.CharField(max_length=50, default="")
+    estoque = models.PositiveIntegerField(default=0)
+    descricao = models.TextField(max_length=500, blank=True, null=True)
 
     class Meta:
         ordering = ["id"]

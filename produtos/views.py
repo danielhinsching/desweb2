@@ -10,9 +10,10 @@ from .serializers import ProdutoSerializer
 class ProdutoViewSet(viewsets.ModelViewSet):
     """CRUD completo de produtos, com filtros, busca, ordenacao e paginacao.
 
-    - Filtros: ?preco_minimo=100&preco_maximo=1000
-    - Busca: ?search=mouse (case-insensitive, parcial, no nome)
-    - Ordenacao: ?ordering=nome | -nome | preco | -preco
+    - Filtros: preco_minimo, preco_maximo, marca (exato, case-insensitive),
+      estoque_minimo, estoque_maximo
+    - Busca: ?search=termo -> nome, marca ou descricao (case-insensitive, parcial)
+    - Ordenacao: ?ordering=nome|preco|marca|estoque|descricao (prefixo - p/ decrescente)
     - Paginacao: ?page=1&page_size=10
     """
 
@@ -26,5 +27,5 @@ class ProdutoViewSet(viewsets.ModelViewSet):
         filters.OrderingFilter,
     ]
     filterset_class = ProdutoFilter
-    search_fields = ["nome"]
-    ordering_fields = ["nome", "preco"]
+    search_fields = ["nome", "marca", "descricao"]
+    ordering_fields = ["nome", "preco", "marca", "estoque", "descricao"]
