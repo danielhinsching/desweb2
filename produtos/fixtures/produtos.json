@@ -1,0 +1,7 @@
+[
+  {"model": "produtos.produto", "pk": 1, "fields": {"nome": "Notebook Pro", "preco": "3500.00"}},
+  {"model": "produtos.produto", "pk": 2, "fields": {"nome": "Mouse USB", "preco": "80.00"}},
+  {"model": "produtos.produto", "pk": 3, "fields": {"nome": "Teclado Mecanico", "preco": "250.00"}},
+  {"model": "produtos.produto", "pk": 4, "fields": {"nome": "Monitor Ultra", "preco": "1200.00"}},
+  {"model": "produtos.produto", "pk": 5, "fields": {"nome": "Cabo HDMI", "preco": "35.00"}}
+]
